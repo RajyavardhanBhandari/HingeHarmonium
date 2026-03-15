@@ -1,16 +1,19 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLidAngleContext } from '@/lib/LidAngleContext'
 import { useHarmonium } from '@/hooks/useHarmonium'
 import LaptopVisualizer from './LaptopVisualizer'
 import KeyboardStrip from './KeyboardStrip'
 import BellowsIndicator from './BellowsIndicator'
+import HowToPlay from './HowToPlay'
+import KeyboardVisualizer from './KeyboardVisualizer'
 
 export default function HarmoniumPlayer() {
   const { angle, status } = useLidAngleContext()
   const { isPlaying, currentNote, noteIndex, bellowsPressure, pressedKeys, start, stop, setAngle } = useHarmonium()
+  const [showGuide, setShowGuide] = useState(true)
 
   useEffect(() => {
     setAngle(angle)
@@ -26,6 +29,8 @@ export default function HarmoniumPlayer() {
       transition={{ duration: 0.6 }}
       className="min-h-screen flex flex-col items-center justify-between py-6 px-4 relative z-10"
     >
+      {/* How to Play modal */}
+      {showGuide && <HowToPlay onClose={() => setShowGuide(false)} />}
       {/* Header */}
       <div className="w-full max-w-lg text-center">
         <div className="flex items-center gap-3 mb-3">
@@ -34,6 +39,20 @@ export default function HarmoniumPlayer() {
             Hinge Harmonium
           </h1>
           <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, var(--brass), transparent)' }} />
+          {/* Guide button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
+            onClick={() => setShowGuide(true)}
+            title="How to play"
+            style={{
+              width: 24, height: 24, borderRadius: '50%',
+              background: 'rgba(181,136,42,0.15)',
+              border: '1px solid rgba(181,136,42,0.35)',
+              color: 'var(--brass)', fontSize: 12,
+              fontFamily: 'var(--font-crimson)',
+              cursor: 'pointer', flexShrink: 0,
+            }}
+          >?</motion.button>
         </div>
         {(isFallback || isTilt) && (
           <motion.p
@@ -147,6 +166,9 @@ export default function HarmoniumPlayer() {
           {isPlaying ? (status === 'active' ? 'Hold A–N · open/close lid to pump air' : status === 'tilt' ? 'Hold A–N · tilt device to pump air' : 'Hold A–N · move mouse up/down to pump air') : 'Press to begin playing'}
         </p>
       </div>
+
+      {/* Keyboard visualizer */}
+      <KeyboardVisualizer pressedKeys={pressedKeys} isPlaying={isPlaying} />
 
       {/* Donate */}
       <div className="flex flex-col items-center gap-1">
