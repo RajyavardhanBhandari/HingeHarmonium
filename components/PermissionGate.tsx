@@ -114,20 +114,23 @@ export default function PermissionGate({ status, onRequest }: Props) {
         Developed by Rajyavardhan Bhandari
       </p>
       <a
-        href="https://rzp.io/rzp/m799Lku6"
+        href="https://rzp.io/rzp/B3xdWkCX"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-3 text-xs px-4 py-1.5 opacity-60 hover:opacity-100 transition-opacity"
+        className="mt-3 px-5 py-2 opacity-70 hover:opacity-100 transition-opacity"
         style={{
           fontFamily: 'var(--font-crimson)',
           color: 'var(--brass-light)',
-          border: '1px solid rgba(181,136,42,0.25)',
-          borderRadius: 3,
+          background: 'rgba(181,136,42,0.1)',
+          border: '1px solid rgba(181,136,42,0.35)',
+          borderRadius: 4,
           textDecoration: 'none',
           letterSpacing: '0.08em',
+          fontSize: 13,
+          fontWeight: 600,
         }}
       >
-        ☕ Buy me a chai · from ₹10
+        ☕ Buy me a chai · Pay what you feel
       </a>
     </motion.div>
   )

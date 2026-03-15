@@ -171,30 +171,38 @@ export default function HarmoniumPlayer() {
       <KeyboardVisualizer pressedKeys={pressedKeys} isPlaying={isPlaying} />
 
       {/* Donate */}
-      <div className="flex flex-col items-center gap-1">
-        <p className="text-xs italic" style={{ color: 'var(--parchment)', opacity: 0.5, fontFamily: 'var(--font-crimson)' }}>
+      <div className="flex flex-col items-center gap-2 w-full max-w-lg">
+        <div className="flex items-center gap-3 w-full">
+          <div className="flex-1 h-px" style={{ background: 'rgba(181,136,42,0.15)' }} />
+          <span style={{ color: 'var(--brass)', opacity: 0.4, fontSize: 10 }}>☕</span>
+          <div className="flex-1 h-px" style={{ background: 'rgba(181,136,42,0.15)' }} />
+        </div>
+        <p style={{ fontFamily: 'var(--font-crimson)', color: 'var(--parchment)', opacity: 0.6, fontSize: 13, textAlign: 'center' }}>
           This tool is free. If it made you smile, buy me a chai ☕
         </p>
         <motion.a
-          href="https://rzp.io/rzp/m799Lku6"
+          href="https://rzp.io/rzp/B3xdWkCX"
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.96 }}
-          className="flex items-center gap-2 px-5 py-2 text-xs uppercase tracking-widest"
+          whileHover={{ scale: 1.04, boxShadow: '0 0 20px rgba(212,168,67,0.3)' }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 px-6 py-2.5"
           style={{
             fontFamily: 'var(--font-crimson)',
-            background: 'linear-gradient(180deg, rgba(181,136,42,0.15), rgba(181,136,42,0.05))',
+            background: 'linear-gradient(180deg, rgba(181,136,42,0.25), rgba(181,136,42,0.12))',
             color: 'var(--brass-light)',
-            border: '1px solid rgba(181,136,42,0.35)',
-            borderRadius: 3,
-            letterSpacing: '0.12em',
+            border: '1px solid rgba(181,136,42,0.5)',
+            borderRadius: 4,
+            letterSpacing: '0.1em',
             textDecoration: 'none',
+            fontSize: 13,
+            fontWeight: 600,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
           }}
         >
-          ☕ Buy me a chai &nbsp;·&nbsp; from ₹10
+          ☕ &nbsp;Buy me a chai &nbsp;·&nbsp; Pay what you feel
         </motion.a>
-        <p className="text-xs opacity-25 italic" style={{ color: 'var(--parchment)', fontFamily: 'var(--font-crimson)' }}>
+        <p style={{ fontFamily: 'var(--font-crimson)', color: 'var(--parchment)', opacity: 0.35, fontSize: 11, fontStyle: 'italic' }}>
           Built by one person. Fuelled by chai. Support if you can 🫖
         </p>
       </div>
