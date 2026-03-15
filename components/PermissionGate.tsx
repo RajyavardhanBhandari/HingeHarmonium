@@ -113,6 +113,22 @@ export default function PermissionGate({ status, onRequest }: Props) {
       <p className="mt-4 text-xs opacity-30" style={{ color: 'var(--brass)', fontFamily: 'var(--font-crimson)', letterSpacing: '0.08em' }}>
         Developed by Rajyavardhan Bhandari
       </p>
+      <a
+        href="https://rzp.io/rzp/m799Lku6"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 text-xs px-4 py-1.5 opacity-60 hover:opacity-100 transition-opacity"
+        style={{
+          fontFamily: 'var(--font-crimson)',
+          color: 'var(--brass-light)',
+          border: '1px solid rgba(181,136,42,0.25)',
+          borderRadius: 3,
+          textDecoration: 'none',
+          letterSpacing: '0.08em',
+        }}
+      >
+        ☕ Buy me a chai · from ₹10
+      </a>
     </motion.div>
   )
 }

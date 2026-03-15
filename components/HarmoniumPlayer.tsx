@@ -148,6 +148,35 @@ export default function HarmoniumPlayer() {
         </p>
       </div>
 
+      {/* Donate */}
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs italic" style={{ color: 'var(--parchment)', opacity: 0.5, fontFamily: 'var(--font-crimson)' }}>
+          This tool is free. If it made you smile, buy me a chai ☕
+        </p>
+        <motion.a
+          href="https://rzp.io/rzp/m799Lku6"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+          className="flex items-center gap-2 px-5 py-2 text-xs uppercase tracking-widest"
+          style={{
+            fontFamily: 'var(--font-crimson)',
+            background: 'linear-gradient(180deg, rgba(181,136,42,0.15), rgba(181,136,42,0.05))',
+            color: 'var(--brass-light)',
+            border: '1px solid rgba(181,136,42,0.35)',
+            borderRadius: 3,
+            letterSpacing: '0.12em',
+            textDecoration: 'none',
+          }}
+        >
+          ☕ Buy me a chai &nbsp;·&nbsp; from ₹10
+        </motion.a>
+        <p className="text-xs opacity-25 italic" style={{ color: 'var(--parchment)', fontFamily: 'var(--font-crimson)' }}>
+          Built by one person. Fuelled by chai. Support if you can 🫖
+        </p>
+      </div>
+
       {/* Footer */}
       <div className="flex items-center gap-3 w-full max-w-lg">
         <div className="flex-1 h-px" style={{ background: 'rgba(181,136,42,0.2)' }} />
