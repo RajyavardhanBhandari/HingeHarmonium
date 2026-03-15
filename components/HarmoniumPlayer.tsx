@@ -17,6 +17,7 @@ export default function HarmoniumPlayer() {
   }, [angle, setAngle])
 
   const isFallback = status === 'fallback'
+  const isTilt = status === 'tilt'
 
   return (
     <motion.div
@@ -34,7 +35,7 @@ export default function HarmoniumPlayer() {
           </h1>
           <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, var(--brass), transparent)' }} />
         </div>
-        {isFallback && (
+        {(isFallback || isTilt) && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -46,7 +47,7 @@ export default function HarmoniumPlayer() {
               fontFamily: 'var(--font-crimson)',
             }}
           >
-            Mouse mode · Hold a key + move cursor up/down to pump air
+            isTilt ? 'Tilt mode · Hold a key + tilt your device to pump air' : 'Mouse mode · Hold a key + move cursor up/down to pump air'
           </motion.p>
         )}
       </div>
@@ -143,7 +144,7 @@ export default function HarmoniumPlayer() {
         </motion.button>
 
         <p className="text-xs opacity-30" style={{ color: 'var(--parchment)', fontFamily: 'var(--font-crimson)' }}>
-          {isPlaying ? 'Move lid or press A–N keys · pump lid for volume' : 'Press to begin playing'}
+          {isPlaying ? (status === 'active' ? 'Hold A–N · open/close lid to pump air' : status === 'tilt' ? 'Hold A–N · tilt device to pump air' : 'Hold A–N · move mouse up/down to pump air') : 'Press to begin playing'}
         </p>
       </div>
 
